@@ -1,0 +1,34 @@
+{
+  "name": "react-spinjs",
+  "version": "3.0.1",
+  "description": "A wrapper around spin.js, instantly useable",
+  "main": "lib",
+  "scripts": {
+    "prepublish": "npm start",
+    "start": "rm -rf lib && babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sadikaya/react-spinjs-fix"
+  },
+  "keywords": [
+    "react",
+    "spinner",
+    "spinjs",
+    "spin.js",
+    "fix"
+  ],
+  "dependencies": {
+    "spin.js": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.1"
+  },
+  "author": "Sadi Kaya",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "prop-types": "^15.5.10"
+  }
+}
