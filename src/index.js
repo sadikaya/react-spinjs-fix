@@ -1,19 +1,24 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Spinner from 'spin.js';
+import React, { Component, createRef } from "react";
+import PropTypes from "prop-types";
+import Spinner from "spin.js";
 
 export default class ReactSpinner extends Component {
   static propTypes = {
     // This object is passed in wholesale as the spinner config
     config: PropTypes.object,
     // This is a quick way to overwrite just the color on the config
-    color: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired
   };
 
   static defaultProps = {
     config: {},
-    color: 'black',
+    color: "black"
   };
+
+  constructor(props) {
+    super(props);
+    this.containerRef = createRef();
+  }
 
   componentDidMount() {
     const { color, config } = this.props;
@@ -25,11 +30,11 @@ export default class ReactSpinner extends Component {
       // color should not overwrite config
       color,
       // config will overwrite anything else
-      ...config,
+      ...config
     };
 
     this.spinner = new Spinner(spinConfig);
-    this.spinner.spin(this.refs.container);
+    this.spinner.spin(this.containerRef.current);
   }
 
   componentWillUnmount() {
@@ -37,6 +42,6 @@ export default class ReactSpinner extends Component {
   }
 
   render() {
-    return <span ref="container"/>;
+    return <span ref={this.containerRef} />;
   }
 }
